@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Mackapärverkstan – bygg en kedja som löser uppdraget</title>
+<meta name="description" content="En uppgift, några fasta saker och en låda full av prylar. Bygg en kedja av plankor, vippor, studsmattor, fläktar och kanoner som får bollen i korgen. Fysikpussel för barn 7–12 år, gratis och utan inloggning.">
+<link rel="canonical" href="https://mackaparverkstan.shipholm.dev/">
+<meta name="theme-color" content="#2f6f9f">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mackapärverkstan">
+<meta property="og:title" content="Mackapärverkstan – bygg kedjan som löser uppdraget">
+<meta property="og:description" content="Placera plankor, vippor och kanoner, tryck på Spela och se om kedjan håller. Fyra uppdrag som blir svårare – och en fri verkstad.">
+<meta property="og:url" content="https://mackaparverkstan.shipholm.dev/">
+<meta property="og:image" content="https://mackaparverkstan.shipholm.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="sv_SE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/fredoka-600.ttf" as="font" type="font/ttf" crossorigin>
+<style>
+  @font-face{font-family:Fredoka;src:url(/fonts/fredoka-400.ttf) format("truetype");font-weight:400;font-display:swap}
+  @font-face{font-family:Fredoka;src:url(/fonts/fredoka-500.ttf) format("truetype");font-weight:500;font-display:swap}
+  @font-face{font-family:Fredoka;src:url(/fonts/fredoka-600.ttf) format("truetype");font-weight:600;font-display:swap}
+  @font-face{font-family:Fredoka;src:url(/fonts/fredoka-700.ttf) format("truetype");font-weight:700;font-display:swap}
+</style>
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Game", "SoftwareApplication"],
+  "name": "Mackapärverkstan",
+  "url": "https://mackaparverkstan.shipholm.dev/",
+  "description": "Fysikpussel där man bygger en kedja av plankor, vippor, studsmattor, fläktar och kanoner för att lösa ett uppdrag. Fyra uppdrag som blir svårare och svårare – och en fri verkstad där man bygger fritt.",
+  "applicationCategory": "EducationalApplication",
+  "applicationSubCategory": "Fysikpussel",
+  "operatingSystem": "iPad, iPhone, Android, dator",
+  "inLanguage": "sv-SE",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "SEK" },
+  "audience": { "@type": "EducationalAudience", "educationalRole": "student", "audienceType": "Barn 7–12 år" },
+  "educationalUse": ["Spel", "Problemlösning", "Konstruktion"],
+  "learningResourceType": "Spel",
+  "teaches": ["Bygga en kedja av orsak och verkan", "Pröva och ändra en konstruktion", "Enkla mekanismer"],
+  "publisher": { "@type": "Organization", "name": "Skolappar", "url": "https://www.skolappar.com" },
+  "screenshot": "https://mackaparverkstan.shipholm.dev/kort.png"
+}
+</script>
+</head>
+<body>
+<div id="app">
+  <header class="topp">
+    <div class="vanster">
+      <p class="namn">Mackapärverkstan</p>
+      <button type="button" class="niva" data-banor aria-haspopup="true" aria-expanded="false"><span data-niva>1/5</span></button>
+    </div>
+    <p class="uppdrag" data-uppdrag>Få bollen i korgen</p>
+    <button type="button" class="liten" data-ljud aria-pressed="true" aria-label="Ljud på eller av">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h3l4-4v14l-4-4H4z"/><path d="M16 8.5a5 5 0 0 1 0 7"/></svg>
+    </button>
+  </header>
+
+  <main id="scen">
+    <canvas id="duk" aria-label="Byggplan där prylarna placeras"></canvas>
+    <p class="tips" data-tips>Tryck på en pryl – tryck sedan på planen</p>
+  </main>
+
+  <div class="banolista" data-banolista hidden></div>
+
+  <footer class="botten">
+    <div class="bricka" data-bricka role="toolbar" aria-label="Prylar"></div>
+    <div class="knappar">
+      <div class="verktygsrad" data-verktygsrad hidden>
+        <button type="button" class="liten" data-rot="-1" aria-label="Rotera motsols">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H5v4"/><path d="M5.5 9a7 7 0 1 1 1.6 7.2"/></svg>
+        </button>
+        <button type="button" class="liten" data-rot="1" aria-label="Rotera medsols">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5h4v4"/><path d="M18.5 9a7 7 0 1 0-1.6 7.2"/></svg>
+        </button>
+        <button type="button" class="liten" data-ta-bort aria-label="Ta bort">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14"/><path d="M9 7V4h6v3"/><path d="M7 7l1 13h8l1-13"/></svg>
+        </button>
+      </div>
+      <button type="button" class="igen" data-igen hidden>Igen</button>
+      <button type="button" class="spela" data-spela>Spela</button>
+    </div>
+  </footer>
+</div>
+<script src="/vendor/matter.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
