@@ -815,6 +815,21 @@
       lösning: [{ typ: "ljus", x: 130, y: 560, v: 0 }],
     },
     {
+      namn: "Kanon och matta",
+      uppdrag: "Skjut bollen i korgen – mattan får styra",
+      fasta: [
+        GOLV,
+        { typ: "kanon", x: 180, y: 520, v: -0.85 },
+        { typ: "platta", x: 660, y: 470, w: 150, h: 16 },
+        { typ: "korg", x: 660, y: 420 },
+      ],
+      delar: { ljus: 2, trampolin: 2 },
+      lösning: [
+        { typ: "ljus", x: 120, y: 560, v: 0 },
+        { typ: "trampolin", x: 540, y: 500, v: 0 },
+      ],
+    },
+    {
       namn: "Fria verkstan",
       uppdrag: "Bygg fritt – prova vad som händer",
       fri: true,

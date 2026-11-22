@@ -18,7 +18,8 @@ ingen inloggning, inga cookies, inga tredjepartsanrop i drift.
   med alla prylar och inget mål.
 
 Banor: 1) Bollen i korgen (planka) 2) Studsa i korgen (studsmatta) 3) Upp med
-ballongen (nål) 4) Skjut iväg den (ljus + kanon) 5) Fria verkstan (sandlåda).
+ballongen (nål) 4) Skjut iväg den (ljus + kanon) 5) Kanon och matta (två system i
+kedja: ljus → kanon → studsmatta → korg) 6) Fria verkstan (sandlåda).
 
 ## Fysik
 
@@ -36,7 +37,7 @@ __mk.prova(0, [{ typ: "planka", x: 330, y: 400, v: 0.65 }])  // → { klar: true
 __mk.sök(0, [], "planka", [280, 300, 320], [380, 400], [0.55, 0.65])
 ```
 
-Alla fyra målbanorna är verifierade lösbara med `prova()`.
+Alla fem målbanorna är verifierade lösbara med `prova()`.
 
 ## Bygg och publicera
 
