@@ -9,6 +9,9 @@
 
   const { Engine, World, Bodies, Body, Composite, Constraint, Events } = Matter;
 
+  // Anonyma siffror till skolappar.com (kotten.js) – appen fungerar utan.
+  const rapport = (namn, värde) => window.skolappar?.event(namn, värde);
+
   let KANON_FART = 12; // kanonens utgångsfart (justeras i banan om det behövs)
 
   const W = 1000; // världens bredd i bygg-enheter
@@ -956,6 +959,8 @@
     städaMotor();
     byggBricka();
     ritaHUD();
+    rapport("round_start");
+    rapport("level", S.bana + 1);
   }
 
   function städaMotor() {
@@ -1085,6 +1090,8 @@
   }
 
   function stopp() {
+    // Kedjan gick inte i mål: barnet bygger om och försöker igen.
+    if (S.lage === "spel") rapport("hint");
     S.lage = "bygg";
     städaMotor();
     ritaHUD();
@@ -1094,6 +1101,7 @@
     S.lage = "klar";
     S.klarTid = performance.now();
     LJUD.klar();
+    rapport("round_done");
     ritaHUD();
   }
 
@@ -1402,6 +1410,7 @@
   if (ljudKnapp) {
     ljudKnapp.addEventListener("click", () => {
       ljudPå = !ljudPå;
+      if (!ljudPå) rapport("sound_off");
       ljudKnapp.classList.toggle("av", !ljudPå);
       ljudKnapp.setAttribute("aria-pressed", ljudPå ? "true" : "false");
     });
