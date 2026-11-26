@@ -9,7 +9,7 @@
 
   const { Engine, World, Bodies, Body, Composite, Constraint, Events } = Matter;
 
-  // Anonyma siffror till skolappar.com (kotten.js) – appen fungerar utan.
+  // Anonyma siffror till skolappar.org (kotten.js) – appen fungerar utan.
   const rapport = (namn, värde) => window.skolappar?.event(namn, värde);
 
   let KANON_FART = 12; // kanonens utgångsfart (justeras i banan om det behövs)
